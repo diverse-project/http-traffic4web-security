@@ -11,6 +11,19 @@ using json = nlohmann::json;
 
 json model;
 string method, path, code, req, resp;
+
+vector<string> split (const string &s, char delim) {
+    vector<string> result;
+    stringstream ss (s);
+    string item;
+ 
+    while (getline (ss, item, delim)) {
+        result.push_back (item);
+    }
+ 
+    return result;
+}
+
 bool handler(const PDU& pkt) {
 	const TCP &tcp = pkt.rfind_pdu<TCP>();
 	const RawPDU& raw = tcp.rfind_pdu<RawPDU>();
@@ -24,7 +37,11 @@ bool handler(const PDU& pkt) {
 		method = req.substr(0, req.find(' '));
 		std::transform(method.begin(), method.end(), method.begin(),
     [](unsigned char c){ return std::tolower(c); });
-		path = req.substr(req.find(' ') + 4, req.find('/')+1); //to review
+
+		vector<string> v = req.split(' ');
+		string str = v[1]
+		vector<string> v = split (str, '/');
+		path = "/" + v[1]; 
 		cout << req << endl;
 
 	}else if(tcp.sport() == 8080){
