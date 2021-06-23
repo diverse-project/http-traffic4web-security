@@ -11,6 +11,7 @@ using json = nlohmann::json;
 
 json model;
 string method, path, code, req, resp;
+set<string> tags;
 
 vector<string> split (const string &s, char delim) {
     vector<string> result;
@@ -38,10 +39,11 @@ bool handler(const PDU& pkt) {
 		std::transform(method.begin(), method.end(), method.begin(),
     [](unsigned char c){ return std::tolower(c); });
 
-		vector<string> v = req.split(' ');
-		string str = v[1]
+		vector<string> r = split(req, ' ');
+		string str = r[1];
 		vector<string> v = split (str, '/');
-		path = "/" + v[1]; 
+		path = "/" + v[2]; 
+		tags.insert(v[2]);
 		cout << req << endl;
 
 	}else if(tcp.sport() == 8080){
@@ -63,7 +65,12 @@ bool handler(const PDU& pkt) {
     		model["paths"][path][method]["responses"][code]["description"] = "example of a description";  
 		}
   		
-	}	
+	}
+	model["tags"] = tags;
+	//for(auto x : tags){
+		
+		//model["tags"][["description"]] = "insert description here";	
+	//}
 	cout << model.dump(4) << endl;
     cout << "###########################" << endl;
     return true;
