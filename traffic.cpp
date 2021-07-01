@@ -17,7 +17,7 @@ set<string> tags;
 
 #define d 256
  
-void search(string pat, string txt, int q)
+bool search(string pat, string txt, int q)
 {
     int M = pat.length();
     int N = txt.length();
