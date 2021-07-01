@@ -93,6 +93,8 @@ bool handler(const PDU& pkt) {
 					cout << "******* smthing is wrong *******" << endl;
 					cout << x << " does not equal " << method << endl;
 				}
+			}else{
+				cout << "********* Method" << x << "not detected *********" << endl;
 			}
 		}
 		
