@@ -113,9 +113,9 @@ bool handler(const PDU& pkt) {
     		//cout << j.dump(4) << endl;
     		//cout << body << endl;	
     		code = resp.substr(resp.find(' ')+1, 3);
-    		cout << code << endl;
     		model["paths"][path][method]["responses"][code]["description"] = "example of a description";  
 		}
+		cout << resp << endl;
   		
 	}
 	model["tags"] = tags;
