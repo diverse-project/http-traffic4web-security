@@ -105,7 +105,7 @@ bool handler(const PDU& pkt) {
 			resp += query;
 		} 
 
-		if(resp[0] != '0'){
+		if(resp[0] != '0' && search("{", resp, 101)){
 			//cout << resp; 
 			string body = resp.substr(resp.find('{'), resp.length());
     		//json j = json::parse(body);
