@@ -2,6 +2,8 @@
 //#include <tins/tins.h>
 #include "json.hpp"
 
+#define d 256
+
 using namespace Tins;
 using namespace std;
 using json = nlohmann::json;
@@ -12,6 +14,8 @@ using json = nlohmann::json;
 json model;
 string method, path, code, req, resp;
 set<string> tags;
+vector<string> methods{"GET", "POST", "PUT", "DELETE"}; 
+//vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
 
 vector<string> split (const string &s, char delim) {
     vector<string> result;
@@ -25,6 +29,47 @@ vector<string> split (const string &s, char delim) {
     return result;
 }
 
+ 
+bool search(string pat, string txt, int q){
+    int M = pat.length();
+    int N = txt.length();
+    int i, j;
+    int p = 0; 
+    int t = 0; 
+    int h = 1;
+ 
+    for (i = 0; i < M - 1; i++)
+        h = (h * d) % q;
+
+    for (i = 0; i < M; i++){
+        p = (d * p + pat[i]) % q;
+        t = (d * t + txt[i]) % q;
+    }
+ 
+    for (i = 0; i <= N - M; i++){
+        if ( p == t ){
+            for (j = 0; j < M; j++){
+                if (txt[i+j] != pat[j])
+                    break;
+            }
+            if (j == M){
+                //cout<<"Pattern found at index "<< i<<endl;
+                return true; 
+            }
+            
+        }
+
+        if ( i < N-M ){
+            t = (d*(t - txt[i]*h) + txt[i+M])%q;
+ 
+            if (t < 0)
+            t = (t + q);
+        }
+    }
+    return false;
+}
+
+
 bool handler(const PDU& pkt) {
 	const TCP &tcp = pkt.rfind_pdu<TCP>();
 	const RawPDU& raw = tcp.rfind_pdu<RawPDU>();
@@ -35,15 +80,21 @@ bool handler(const PDU& pkt) {
 		for(const auto &query : payload){
 			req += query;
 		} 
-		method = req.substr(0, req.find(' '));
-		std::transform(method.begin(), method.end(), method.begin(),
-    [](unsigned char c){ return std::tolower(c); });
-
-		vector<string> r = split(req, ' ');
-		string str = r[1];
-		vector<string> v = split (str, '/');
-		path = "/" + v[2]; 
-		tags.insert(v[2]);
+		for(auto x : methods){
+			if(search(x, req, 101)){
+				method = req.substr(0, req.find(' '));
+				std::transform(method.begin(), method.end(), method.begin(),[](unsigned char c){ return std::tolower(c); });
+				vector<string> r = split(req, ' ');
+				string str = r[1];
+				vector<string> v = split (str, '/');
+				path = "/" + v[2]; 
+				tags.insert(v[2]);
+				if(x != method){
+					cout << "******* smthing is wrong *******" << endl;
+				}
+			}
+		}
+		
 		cout << req << endl;
 
 	}else if(tcp.sport() == 8080){
