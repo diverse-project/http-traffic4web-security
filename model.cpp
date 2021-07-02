@@ -93,8 +93,6 @@ bool handler(const PDU& pkt) {
 					cout << "******* smthing is wrong *******" << endl;
 					cout << x << " does not equal " << method << endl;
 				}
-			}else{
-				cout << "********* Method" << x << "not detected *********" << endl;
 			}
 		}
 		
@@ -109,12 +107,13 @@ bool handler(const PDU& pkt) {
 		} 
 
 		if(resp[0] != '0' ){
-			//cout << resp; 
-			//&& search("{", resp, 101)
-			//string body = resp.substr(resp.find('{'), resp.length());
-    		//json j = json::parse(body);
-    		//cout << j.dump(4) << endl;
-    		//cout << body << endl;	
+			if(search("{", resp, 101)){
+				string body = resp.substr(resp.find('{'), resp.length());
+				json j = json::parse(body);
+				//cout << j.dump(4) << endl;
+				//cout << body << endl;	
+			}
+			
     		code = resp.substr(resp.find(' ')+1, 3);
     		model["paths"][path][method]["responses"][code]["description"] = "example of a description";  
 		}
