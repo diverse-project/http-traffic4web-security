@@ -16,6 +16,7 @@ string method, path, code, req, resp;
 set<string> tags;
 vector<string> methods{"GET", "POST", "PUT", "DELETE"}; 
 //vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
+map<string, string> desc = {{"200", "OK"}, {"201", "Created"}, {"204", "No Content"}, {"304", "Not Modified"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"404", "Not Found"}, {"409", "Conflict"}, {"500", "Internal Server Error"}};
 
 vector<string> split (const string &s, char delim) {
     vector<string> result;
@@ -55,10 +56,8 @@ bool search(string pat, string txt, int q){
             if (j == M){
                 //cout<<"Pattern found at index "<< i<<endl;
                 return true; 
-            }
-            
+            }  
         }
-
         if ( i < N-M ){
             t = (d*(t - txt[i]*h) + txt[i+M])%q;
  
@@ -89,10 +88,6 @@ bool handler(const PDU& pkt) {
 				vector<string> v = split (str, '/');
 				path = "/" + v[2]; 
 				tags.insert(v[2]);
-				if(x != method){
-					cout << "******* smthing is wrong *******" << endl;
-					cout << x << " does not equal " << method << endl;
-				}
 			}
 		}
 		
