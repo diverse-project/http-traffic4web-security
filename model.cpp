@@ -110,7 +110,7 @@ bool handler(const PDU& pkt) {
 			}
 			
     		code = resp.substr(resp.find(' ')+1, 3);
-    		model["paths"][path][method]["responses"][code]["description"] = "example of a description";  
+    		model["paths"][path][method]["responses"][code]["description"] = desc[code];  
 		}
 		cout << resp << endl;
   		
