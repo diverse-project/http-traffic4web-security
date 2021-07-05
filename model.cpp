@@ -111,12 +111,13 @@ bool handler(const PDU& pkt) {
 			
     		code = resp.substr(resp.find(' ')+1, 3);
     		model["paths"][path][method]["responses"][code]["description"] = desc[code];  
-    		model["paths"][path][method]["security"];
+    		//model["paths"][path][method]["security"] = ;
 		}
 		cout << resp << endl;
   		
 	}
-	model["tags"] = tags;
+	//model["tags"] = {["name"] = tag};
+	model["tags"] = tags; 
 	//for(auto x : tags){
 		
 		//model["tags"][["description"]] = "insert description here";	
