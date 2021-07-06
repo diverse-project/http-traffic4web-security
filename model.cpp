@@ -90,6 +90,9 @@ bool handler(const PDU& pkt) {
 				tags.insert(v[2]);
 			}
 		}
+		//if(search("x-accepts", req, 101)){
+
+		//}
 		
 		cout << req << endl;
 
