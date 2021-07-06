@@ -116,8 +116,8 @@ bool handler(const PDU& pkt) {
 		cout << resp << endl;
   		
 	}
-	//model["tags"] = {["name"] = tag};
-	model["tags"] = tags; 
+	model["tags"] = {["name"] = tag};
+	//model["tags"] = tags; 
 	//for(auto x : tags){
 		
 		//model["tags"][["description"]] = "insert description here";	
