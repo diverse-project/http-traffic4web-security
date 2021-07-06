@@ -1,0 +1,20 @@
+#!/bin/sh 
+docker run -d -e OPENAPI_BASE_PATH=/v3 -p 80:8080 openapitools/openapi-petstore
+cd http-traffic4web-security/
+c++ model.cpp -ltins
+./a.out
+curl -X GET "http://161.35.147.108/v3/pet/3" -H "accept: application/json" -H "api_key: special-key"
+curl -X GET "http://161.35.147.108/v3/pet/120" -H "accept: application/json" -H "api_key: special-key"
+curl -X POST "http://161.35.147.108/v3/pet/99" -H "accept: */*" -H "Authorization: Bearer 175faeb1-eb74-48c0-a7b8-917a9ba813a4" -H "Content-Type: application/x-www-form-urlencoded" -d "name=string&status=string"
+curl -X POST "http://161.35.147.108/v3/pet/10" -H "accept: */*" -H "Authorization: Bearer 175faeb1-eb74-48c0-a7b8-917a9ba813a4" -H "Content-Type: application/x-www-form-urlencoded" -d "name=string&status=string"
+curl -X DELETE "http://161.35.147.108/v3/pet/245" -H "accept: */*" -H "Authorization: Bearer 175faeb1-eb74-48c0-a7b8-917a9ba813a4"
+curl -X DELETE "http://161.35.147.108/v3/pet/" -H "accept: */*" -H "Authorization: Bearer 175faeb1-eb74-48c0-a7b8-917a9ba813a4"
+
+# Happy paths 
+# Extended positive testing with optional parameters
+# Negative testing with valid input
+# Negative testing with invalid input
+# Destructive testing
+# Security, authorization, and permission tests 
+
+# Multi-step workflow with several requests

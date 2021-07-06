@@ -16,7 +16,7 @@ string method, path, code, req, resp;
 set<string> tags;
 vector<string> methods{"GET", "POST", "PUT", "DELETE"}; 
 //vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
-map<string, string> desc = {{"200", "OK"}, {"201", "Created"}, {"204", "No Content"}, {"304", "Not Modified"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"404", "Not Found"}, {"409", "Conflict"}, {"500", "Internal Server Error"}};
+map<string, string> desc = {{"200", "OK"}, {"201", "Created"}, {"204", "No Content"}, {"304", "Not Modified"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"404", "Not Found"}, {"405", "Method Not Allowed"}, {"409", "Conflict"}, {"500", "Internal Server Error"}};
 
 vector<string> split (const string &s, char delim) {
     vector<string> result;
