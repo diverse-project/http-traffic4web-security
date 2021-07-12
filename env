@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Install docker 
+
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+
+# Start petstore and clone the project
+
+docker pull openapitools/openapi-petstore
+docker run -d -e OPENAPI_BASE_PATH=/v3 -p 80:8080 openapitools/openapi-petstore
+git clone https://github.com/diverse-project/http-traffic4web-security.git
+
+
+# Install libtins 
+
+sudo apt-get update -y
+sudo apt-get install -y libtins-dev
+
+# Install g++
+
+apt install g++
+
+# Test one of the scripts 
+
+cd http-traffic4web-security/
+ls
+c++ traffic.cpp -ltins 
+./a.out
