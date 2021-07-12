@@ -68,9 +68,6 @@ bool handler(const PDU& pkt) {
 		for(const auto &query : payload){
 			req += query;
 		} 
-		if(search("GET", req, 101)){
-			cout << "you can find it in this req" << endl;
-		}
 		cout << req << endl;
 
 	}else if(tcp.sport() == 8080){
