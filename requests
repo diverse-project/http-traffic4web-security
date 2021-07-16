@@ -9,6 +9,13 @@ curl -X DELETE "http://161.35.147.108/v3/pet/245" -H "accept: */*" -H "Authoriza
 curl -X DELETE "http://161.35.147.108/v3/pet/" -H "accept: */*" -H "Authorization: Bearer 175faeb1-eb74-48c0-a7b8-917a9ba813a4"
 
 # Happy paths 
+curl -X GET "http://161.35.147.108/v3/pet/4" -H "accept: application/json" -H "api_key: special-key"
+curl -X POST "http://161.35.147.108/v3/pet" -H "accept: */*" -H "Authorization: Bearer 988e816d-af54-4412-a9aa-97d3f1a9afff" -H "Content-Type: application/json" -d "{\"photoUrls\":[\"photoUrls\",\"photoUrls\"],\"name\":\"addedog\",\"id\":11,\"category\":{\"name\":\"name\",\"id\":6},\"tags\":[{\"name\":\"name\",\"id\":1},{\"name\":\"name\",\"id\":1}],\"status\":\"available\"}"
+curl -X PUT "http://161.35.147.108/v3/pet" -H "accept: */*" -H "Authorization: Bearer 988e816d-af54-4412-a9aa-97d3f1a9afff" -H "Content-Type: application/json" -d "{\"photoUrls\":[\"photoUrls\",\"photoUrls\"],\"name\":\"updatedog\",\"id\":11,\"category\":{\"name\":\"name\",\"id\":6},\"tags\":[{\"name\":\"name\",\"id\":1},{\"name\":\"name\",\"id\":1}],\"status\":\"available\"}"
+curl -X GET "http://161.35.147.108/v3/pet/findByStatus?status=pending" -H "accept: application/json" -H "Authorization: Bearer 988e816d-af54-4412-a9aa-97d3f1a9afff"
+curl -X POST "http://161.35.147.108/v3/pet/11" -H "accept: */*" -H "Authorization: Bearer 988e816d-af54-4412-a9aa-97d3f1a9afff" -H "Content-Type: application/x-www-form-urlencoded" -d "name=apdatedformdog&status=string"
+curl -X DELETE "http://161.35.147.108/v3/pet/11" -H "accept: */*" -H "api_key: special-key" -H "Authorization: Bearer 988e816d-af54-4412-a9aa-97d3f1a9afff"
+
 # Extended positive testing with optional parameters
 # Negative testing with valid input
 # Negative testing with invalid input
