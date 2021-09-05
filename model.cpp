@@ -138,8 +138,8 @@ bool handler(const PDU& pkt) {
 	//}
 	//mfile << model.dump(4) << endl;
     //mfile << "###########################" << endl;
-    printf (model.dump(4));
-    printf ("###########################");
+    cout << model.dump(4) << endl;
+    cout << "###########################" << endl;
     //mfile.close();
     fclose (stdout);
     return true;
@@ -152,7 +152,6 @@ int main() {
 	model["externalDocs"]["description"] = "Find out more about OpenAPI generator";
 	model["externalDocs"]["url"] = "https://openapi-generator.tech";
 	//mfile << model.dump(4) << endl;
-	printf (model.dump(4));
 	Sniffer("docker0").sniff_loop(handler);
 	
 }
