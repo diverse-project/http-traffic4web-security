@@ -75,7 +75,9 @@ bool search(string pat, string txt, int q){
 
 
 bool handler(const PDU& pkt) {
-	mfile.open ("mfile.txt");
+	//mfile.open ("mfile.txt");
+	freopen ("mfile.txt","w",stdout);
+
 	const TCP &tcp = pkt.rfind_pdu<TCP>();
 	const RawPDU& raw = tcp.rfind_pdu<RawPDU>();
 	const RawPDU::payload_type& payload = raw.payload(); 
@@ -134,9 +136,12 @@ bool handler(const PDU& pkt) {
 		
 		//model["tags"][["description"]] = "insert description here";	
 	//}
-	mfile << model.dump(4) << endl;
-    mfile << "###########################" << endl;
-    mfile.close();
+	//mfile << model.dump(4) << endl;
+    //mfile << "###########################" << endl;
+    printf (model.dump(4));
+    printf ("###########################");
+    //mfile.close();
+    fclose (stdout);
     return true;
 }
 
@@ -146,7 +151,8 @@ int main() {
 	model["openapi"] = "3.0.0"; 	
 	model["externalDocs"]["description"] = "Find out more about OpenAPI generator";
 	model["externalDocs"]["url"] = "https://openapi-generator.tech";
-	mfile << model.dump(4) << endl;
+	//mfile << model.dump(4) << endl;
+	printf (model.dump(4));
 	Sniffer("docker0").sniff_loop(handler);
 	
 }
