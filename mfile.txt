@@ -1,0 +1,34 @@
+0
+
+
+{
+    "externalDocs": {
+        "description": "Find out more about OpenAPI generator",
+        "url": "https://openapi-generator.tech"
+    },
+    "openapi": "3.0.0",
+    "paths": {
+        "/v3/pet/5": {
+            "GET": {
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/v3/pet/55": {
+            "GET": {
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        "pet"
+    ]
+}
+###########################
