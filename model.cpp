@@ -18,6 +18,11 @@ vector<string> methods{"GET", "POST", "PUT", "DELETE"};
 //vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
 map<string, string> desc = {{"200", "OK"}, {"201", "Created"}, {"204", "No Content"}, {"304", "Not Modified"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"404", "Not Found"}, {"405", "Method Not Allowed"}, {"409", "Conflict"}, {"500", "Internal Server Error"}};
 
+ofstream mfile;
+
+
+
+
 vector<string> split (const string &s, char delim) {
     vector<string> result;
     stringstream ss (s);
@@ -70,6 +75,7 @@ bool search(string pat, string txt, int q){
 
 
 bool handler(const PDU& pkt) {
+	mfile.open ("mfile.txt");
 	const TCP &tcp = pkt.rfind_pdu<TCP>();
 	const RawPDU& raw = tcp.rfind_pdu<RawPDU>();
 	const RawPDU::payload_type& payload = raw.payload(); 
@@ -87,6 +93,7 @@ bool handler(const PDU& pkt) {
 				string url = r[1];
 				vector<string> v = split (url, '/');
 				//path = "/" + v[2];
+				if(v[v.size()-1] )
 				path = url; 
 				tags.insert(v[2]);
 			}
@@ -127,8 +134,9 @@ bool handler(const PDU& pkt) {
 		
 		//model["tags"][["description"]] = "insert description here";	
 	//}
-	cout << model.dump(4) << endl;
-    cout << "###########################" << endl;
+	mfile << model.dump(4) << endl;
+    mfile << "###########################" << endl;
+    mfile.close();
     return true;
 }
 
@@ -138,7 +146,7 @@ int main() {
 	model["openapi"] = "3.0.0"; 	
 	model["externalDocs"]["description"] = "Find out more about OpenAPI generator";
 	model["externalDocs"]["url"] = "https://openapi-generator.tech";
-	cout << model.dump(4) << endl;
+	mfile << model.dump(4) << endl;
 	Sniffer("docker0").sniff_loop(handler);
 	
 }
