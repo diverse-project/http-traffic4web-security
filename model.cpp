@@ -144,7 +144,7 @@ bool handler(const PDU& pkt) {
     fclose (stdout);
     timer++; 
     if (timer > 5){
-    	return false
+    	return false;
     }
     return true;
 }
