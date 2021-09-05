@@ -93,7 +93,7 @@ bool handler(const PDU& pkt) {
 				string url = r[1];
 				vector<string> v = split (url, '/');
 				//path = "/" + v[2];
-				if(v[v.size()-1] )
+				//if(v[v.size()-1] )
 				path = url; 
 				tags.insert(v[2]);
 			}
