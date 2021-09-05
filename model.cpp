@@ -20,7 +20,7 @@ map<string, string> desc = {{"200", "OK"}, {"201", "Created"}, {"204", "No Conte
 
 ofstream mfile;
 
-
+int timer = 0; 
 
 
 vector<string> split (const string &s, char delim) {
@@ -142,6 +142,10 @@ bool handler(const PDU& pkt) {
     cout << "###########################" << endl;
     //mfile.close();
     fclose (stdout);
+    timer++; 
+    if (timer > 5){
+    	return false
+    }
     return true;
 }
 
