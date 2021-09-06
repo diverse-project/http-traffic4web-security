@@ -101,7 +101,6 @@ bool handler(const PDU& pkt) {
 
 		//}
 		
-		cout << req << endl;
 
 	}else if(tcp.sport() == 8080){
 
