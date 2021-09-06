@@ -1,6 +1,18 @@
-0
+POST /v3/pet/60 HTTP/1.1
+Host: 161.35.147.108
+Connection: keep-alive
+Content-Length: 25
+accept: */*
+Authorization: Bearer 846e8853-9831-4b12-b0c8-adf429e72ff4
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Origin: http://161.35.147.108
+Referer: http://161.35.147.108/
+Accept-Encoding: gzip, deflate
+Accept-Language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: JSESSIONID=6FF992CEB578DC9BBA3607A6A8AFC2EE
 
-
+name=dumdum&status=string
 {
     "externalDocs": {
         "description": "Find out more about OpenAPI generator",
@@ -8,8 +20,8 @@
     },
     "openapi": "3.0.0",
     "paths": {
-        "/v3/pet/5": {
-            "GET": {
+        "/v3/pet": {
+            "POST": {
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -17,11 +29,11 @@
                 }
             }
         },
-        "/v3/pet/55": {
+        "/v3/pet/9": {
             "GET": {
                 "responses": {
-                    "404": {
-                        "description": "Not Found"
+                    "200": {
+                        "description": "OK"
                     }
                 }
             }
@@ -31,4 +43,3 @@
         "pet"
     ]
 }
-###########################
