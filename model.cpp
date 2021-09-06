@@ -134,7 +134,7 @@ bool handler(const PDU& pkt) {
 	//}
 	//mfile << model.dump(4) << endl;
     //mfile << "###########################" << endl;
-    cout << model.dump(4) << endl;
+    cout << model.dump(4);
     //cout << "###########################" << endl;
     //mfile.close();
     fclose (stdout);

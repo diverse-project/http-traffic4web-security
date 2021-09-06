@@ -10,7 +10,7 @@ json model;
 int main(){
 	freopen ("mfile.txt","r",stdin);
 	cin >> model; 
-	cout << model; 
+	cout << model.dump(4); 
 
 	return 0;
 }
