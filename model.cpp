@@ -97,6 +97,12 @@ bool handler(const PDU& pkt) {
 				tags.insert(v[2]);
 			}
 		}
+
+		if(search("Host:", req, 101)){
+			server = req.substr(req.find("Host:"), "\n");
+			model["servers"]["url"] = server;
+		}
+
 		//if(search("x-accepts", req, 101)){
 
 		//}
@@ -122,6 +128,7 @@ bool handler(const PDU& pkt) {
     		model["paths"][path][method]["responses"][code]["description"] = desc[code];  
     		//model["paths"][path][method]["security"] = ;
     		//model["paths"][path][method]["x-accepts"] = ;
+    		//model["components"][securitySchemes"][method]["x-accepts"] = ;
 		}
 		
   		
@@ -132,12 +139,10 @@ bool handler(const PDU& pkt) {
 		
 		//model["tags"][["description"]] = "insert description here";	
 	//}
-	//mfile << model.dump(4) << endl;
-    //mfile << "###########################" << endl;
+	
+
     cout << model.dump(4);
-    //cout << "###########################" << endl;
-    //mfile.close();
-    fclose (stdout);
+
     timer++; 
     if (timer > 5){
     	return false;
@@ -146,11 +151,12 @@ bool handler(const PDU& pkt) {
 }
 
 
-
 int main() {
 	model["openapi"] = "3.0.0"; 	
-	model["externalDocs"]["description"] = "Find out more about OpenAPI generator";
-	model["externalDocs"]["url"] = "https://openapi-generator.tech";
+	model["externalDocs"]["description"] = "Find out more about Hissane's security tool";
+	model["externalDocs"]["url"] = "https://github.com/diverse-project/http-traffic4web-security";
+	model["info"]["title"] = "defaultTitle";
+	model["info"]["description"] = "defaultDescription";
+	model["info"]["version"] = "0.1";
 	Sniffer("docker0").sniff_loop(handler);
-	
 }
