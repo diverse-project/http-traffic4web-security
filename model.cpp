@@ -100,7 +100,7 @@ bool handler(const PDU& pkt) {
 
 				// test if it can become an array
 				if(search("accept: application/json", req, 101)){
-					model["paths"][path][method]["x-accepts"] = "application/json"
+					model["paths"][path][method]["x-accepts"] = "application/json";
 				}else if(search("accept: */*", req, 101)){
 					model["paths"][path][method]["x-accepts"] = "*/*";
 				}else if(search("accept: application/xml", req, 101)){
