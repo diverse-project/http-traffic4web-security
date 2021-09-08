@@ -12,7 +12,7 @@ using json = nlohmann::json;
 // compile using : c++ model.cpp -ltins
 
 json model;
-string method, path, code, req, resp, server;
+string method, path, code, req, resp, server, tag;
 set<string> tags;
 vector<string> methods{"GET", "POST", "PUT", "DELETE"}; 
 //vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
@@ -89,12 +89,21 @@ bool handler(const PDU& pkt) {
 				method = req.substr(0, req.find(' '));
 				//std::transform(method.begin(), method.end(), method.begin(),[](unsigned char c){ return std::tolower(c); });
 				vector<string> r = split(req, ' ');
-				string url = r[1];
-				vector<string> v = split (url, '/');
+				path = r[1];
+				vector<string> v = split (path, '/');
 				//path = "/" + v[2];
 				//if(v[v.size()-1] )
-				path = url; 
-				tags.insert(v[2]);
+				tag = v[2];
+				tags.insert(tag);
+				// for put or post only 
+				//model["paths"][path][method]["requestBody"]["description"] = "Auto generated using model inference tool";
+				//model["paths"][path][method]["requestBody"]["content"] =
+				if(search("accept", req, 101)){
+					model["paths"][path][method]["x-accepts"] = req.substr(req.find("accept:")+8, req.find("\r")-req.find("accept:")-8);
+				}
+				
+				//model["paths"][path][method]["x-accepts"] =
+				//model["paths"][path][method]["x-accepts"] =
 			}
 		}
 
@@ -126,7 +135,8 @@ bool handler(const PDU& pkt) {
 			
     		code = resp.substr(resp.find(' ')+1, 3);
     		model["paths"][path][method]["responses"][code]["description"] = desc[code];  
-    		//model["paths"][path][method]["security"] = ;
+    		model["paths"][path][method]["tags"] = tag;
+    		model["paths"][path][method]["responses"][code]["x-headers"] = {"1st element of array"}
     		//model["paths"][path][method]["x-accepts"] = ;
     		//model["components"][securitySchemes"][method]["x-accepts"] = ;
 		}
