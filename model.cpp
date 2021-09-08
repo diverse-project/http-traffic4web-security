@@ -136,7 +136,7 @@ bool handler(const PDU& pkt) {
     		code = resp.substr(resp.find(' ')+1, 3);
     		model["paths"][path][method]["responses"][code]["description"] = desc[code];  
     		model["paths"][path][method]["tags"] = tag;
-    		model["paths"][path][method]["responses"][code]["x-headers"] = {"1st element of array"}
+    		model["paths"][path][method]["responses"][code]["x-headers"] = {"1st element of array"};'
     		//model["paths"][path][method]["x-accepts"] = ;
     		//model["components"][securitySchemes"][method]["x-accepts"] = ;
 		}
