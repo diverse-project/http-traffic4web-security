@@ -92,19 +92,21 @@ bool handler(const PDU& pkt) {
 				vector<string> r = split(req, ' ');
 				path = r[1];
 				vector<string> v = split (path, '/');
-				//path = "/" + v[2];
-				//if(v[v.size()-1] )
 				tag = v[2];
 				tags.insert(tag);
 				// for put or post only 
 				//model["paths"][path][method]["requestBody"]["description"] = "Auto generated using model inference tool";
 				//model["paths"][path][method]["requestBody"]["content"] =
-				if(search("accept", req, 101)){
-					model["paths"][path][method]["x-accepts"] = req.substr(req.find("accept:")+8, req.find("\r")-req.find("accept:")-8);
+
+				// test if it can become an array
+				if(search("accept: application/json", req, 101)){
+					model["paths"][path][method]["x-accepts"] = "application/json"
+				}else if(search("accept: */*", req, 101)){
+					model["paths"][path][method]["x-accepts"] = "*/*";
+				}else if(search("accept: application/xml", req, 101)){
+					model["paths"][path][method]["x-accepts"] = "application/xml";
 				}
 				
-				//model["paths"][path][method]["x-accepts"] =
-				//model["paths"][path][method]["x-accepts"] =
 			}
 		}
 
@@ -150,7 +152,7 @@ bool handler(const PDU& pkt) {
 		
   		
 	}
-	//model["tags"] = {["name"] = tag};
+	//model["tags"] = {"name" = tag};
 	model["tags"] = tags; 
 	//for(auto x : tags){
 		
@@ -161,7 +163,7 @@ bool handler(const PDU& pkt) {
     cout << model.dump(4);
 
     timer++; 
-    if (timer > 5){
+    if (timer > 15){
     	return false;
     }
     return true;
