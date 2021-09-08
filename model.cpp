@@ -12,7 +12,7 @@ using json = nlohmann::json;
 // compile using : c++ model.cpp -ltins
 
 json model;
-string method, path, code, req, resp;
+string method, path, code, req, resp, server;
 set<string> tags;
 vector<string> methods{"GET", "POST", "PUT", "DELETE"}; 
 //vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
