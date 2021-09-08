@@ -99,7 +99,7 @@ bool handler(const PDU& pkt) {
 		}
 
 		if(search("Host:", req, 101)){
-			server = req.substr(req.find("Host:"+5), 15);
+			server = req.substr(req.find("Host:"), 15);
 			model["servers"]["url"] = server;
 		}
 
