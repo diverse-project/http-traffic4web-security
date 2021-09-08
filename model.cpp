@@ -17,6 +17,7 @@ set<string> tags;
 vector<string> methods{"GET", "POST", "PUT", "DELETE"}; 
 //vector<string> methods{"GET", "POST", "PUT", "DELETE", "HEAD", "CONNECT", "OPTIONS", "TRACE", "PATCH"}; 
 map<string, string> desc = {{"200", "OK"}, {"201", "Created"}, {"204", "No Content"}, {"304", "Not Modified"}, {"400", "Bad Request"}, {"401", "Unauthorized"}, {"404", "Not Found"}, {"405", "Method Not Allowed"}, {"409", "Conflict"}, {"500", "Internal Server Error"}};
+vector<string> headers{"Cache-Control: no-store", "Content-Security-Policy: frame-ancestors 'none'", "Content-Type", "Strict-Transport-Security", "X-Content-Type-Options: nosniff", "X-Frame-Options: DENY"};
 
 int timer = 0; 
 
@@ -136,7 +137,13 @@ bool handler(const PDU& pkt) {
     		code = resp.substr(resp.find(' ')+1, 3);
     		model["paths"][path][method]["responses"][code]["description"] = desc[code];  
     		model["paths"][path][method]["tags"] = tag;
-    		model["paths"][path][method]["responses"][code]["x-headers"] = {"1st element of array"};
+    		vector<string> hdr = {};
+    		for(auto x : headers){
+    			if(search(x, resp, 101)){
+    				hdr.push_back(x);
+    			}
+    		}
+    		model["paths"][path][method]["responses"][code]["x-headers"] = hdr;
     		//model["paths"][path][method]["x-accepts"] = ;
     		//model["components"][securitySchemes"][method]["x-accepts"] = ;
 		}
