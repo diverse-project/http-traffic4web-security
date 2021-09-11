@@ -12,7 +12,7 @@ int main(){
 	cin >> model; 
 	
 	for(auto x : model["paths"].items()){
-		cout << x << endl;
+		cout << x.key() << endl;
 	}
 
 	return 0;
