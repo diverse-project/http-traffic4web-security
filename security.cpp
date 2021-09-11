@@ -13,8 +13,8 @@ int main(){
 	
 	for(auto x : model["paths"].items()){
 		//cout << x.key() << endl; // path
-		for(auto y : x.items()){
-			for(auto z : y.items()){
+		for(auto y : x.key().items()){
+			for(auto z : y.key().items()){
 				cout << z.key() << endl;
 			}
 		}
