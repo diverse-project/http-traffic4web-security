@@ -14,7 +14,7 @@ int main(){
 	for(auto x : model["paths"]){
 		//cout << x.key() << endl; // path
 		for(auto y : x){
-			for(z : y){
+			for(auto z : y){
 				cout << z.key() << endl;
 			}
 		}
