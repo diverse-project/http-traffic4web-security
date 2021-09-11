@@ -14,10 +14,10 @@ int main(){
 	for(auto x : model["paths"]){
 		//cout << x.key() << endl; // path
 		for(auto y : x){
+			cout << y << endl;
 			for(auto z : y){
-				if(y.key() == "responses"){
-					cout << z << endl;
-				}
+				
+				
 			}
 		}
 	}
