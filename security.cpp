@@ -11,11 +11,11 @@ int main(){
 	freopen ("mfile.txt","r",stdin);
 	cin >> model; 
 	
-	for(auto x : model["paths"].items()){
+	for(auto x : model["paths"]){
 		//cout << x.key() << endl; // path
-		for(auto y : x.key().items()){
-			for(auto z : y.key().items()){
-				cout << z.key() << endl;
+		for(auto y : x){
+			for(auto z : y){
+				cout << z << endl;
 			}
 		}
 	}
