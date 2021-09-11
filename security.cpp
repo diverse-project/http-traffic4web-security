@@ -14,11 +14,9 @@ int main(){
 	for(auto x : model["paths"]){
 		//cout << x.key() << endl; // path
 		for(auto y : x){
-			cout << "y's key is this : " << y.key() << endl;
-			for(auto z : y){
-				if(z.key()){
-					cout << "whearas z is : " << z << endl;
-				}
+			cout << "y is this : " << y << endl;
+			for(auto z : y.items()){
+				cout << "whearas z's key is : " << z.key() << endl;
 			}
 		}
 	}
