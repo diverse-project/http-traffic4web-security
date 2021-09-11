@@ -16,7 +16,7 @@ int main(){
 		for(auto y : x){
 			cout << "y is this : " << y << endl;
 			for(auto z : y){
-				cout << "whearas z is : " << y << endl;
+				cout << "whearas z is : " << z << endl;
 				
 				
 			}
