@@ -11,7 +11,9 @@ int main(){
 	freopen ("mfile.txt","r",stdin);
 	cin >> model; 
 	
-	
+	for(auto x : model["paths"].items()){
+		cout << x << endl;
+	}
 
 	return 0;
 }
