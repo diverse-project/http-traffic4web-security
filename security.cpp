@@ -14,11 +14,11 @@ int main(){
 	for(auto x : model["paths"]){
 		//cout << x.key() << endl; // path
 		for(auto y : x){
-			cout << "y is this : " << y << endl;
+			cout << "y's key is this : " << y.key() << endl;
 			for(auto z : y){
-				cout << "whearas z is : " << z << endl;
-				
-				
+				if(z.key()){
+					cout << "whearas z is : " << z << endl;
+				}
 			}
 		}
 	}
