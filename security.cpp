@@ -12,7 +12,12 @@ int main(){
 	cin >> model; 
 	
 	for(auto x : model["paths"].items()){
-		cout << x.key() << endl;
+		//cout << x.key() << endl; // path
+		for(auto y : x.items()){
+			for(z : y.items()){
+				cout << z.key() << endl;
+			}
+		}
 	}
 
 	return 0;
