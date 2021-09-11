@@ -15,7 +15,9 @@ int main(){
 		//cout << x.key() << endl; // path
 		for(auto y : x){
 			for(auto z : y){
-				cout << z << endl;
+				if(y.key() == "responses"){
+					cout << z << endl;
+				}
 			}
 		}
 	}
