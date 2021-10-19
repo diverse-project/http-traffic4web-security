@@ -13,10 +13,9 @@
         "/v3/pet": {
             "POST": {
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized",
+                    "200": {
+                        "description": "OK",
                         "x-headers": [
-                            "Cache-Control: no-store",
                             "Content-Type",
                             "X-Content-Type-Options: nosniff",
                             "X-Frame-Options: DENY"
@@ -28,10 +27,9 @@
             },
             "PUT": {
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized",
+                    "200": {
+                        "description": "OK",
                         "x-headers": [
-                            "Cache-Control: no-store",
                             "Content-Type",
                             "X-Content-Type-Options: nosniff",
                             "X-Frame-Options: DENY"
@@ -42,31 +40,11 @@
                 "x-accepts": "*/*"
             }
         },
-        "/v3/pet/11": {
-            "DELETE": {
-                "x-accepts": "*/*"
-            },
-            "POST": {
-                "responses": {
-                    "401": {
-                        "description": "Unauthorized",
-                        "x-headers": [
-                            "Cache-Control: no-store",
-                            "Content-Type",
-                            "X-Content-Type-Options: nosniff",
-                            "X-Frame-Options: DENY"
-                        ]
-                    }
-                },
-                "tags": "pet",
-                "x-accepts": "*/*"
-            }
-        },
-        "/v3/pet/4": {
+        "/v3/pet/3": {
             "GET": {
                 "responses": {
-                    "404": {
-                        "description": "Not Found",
+                    "200": {
+                        "description": "OK",
                         "x-headers": [
                             "Content-Type"
                         ]
@@ -76,20 +54,45 @@
                 "x-accepts": "application/json"
             }
         },
-        "/v3/pet/findByStatus?status=pending": {
+        "/v3/pet/9": {
             "GET": {
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized",
+                    "200": {
+                        "description": "OK",
                         "x-headers": [
-                            "Cache-Control: no-store",
-                            "Content-Type",
-                            "X-Content-Type-Options: nosniff",
-                            "X-Frame-Options: DENY"
+                            "Content-Type"
                         ]
                     }
                 },
                 "tags": "pet",
+                "x-accepts": "application/json"
+            }
+        },
+        "/v3/store/order": {
+            "POST": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
+                    }
+                },
+                "tags": "store",
+                "x-accepts": "application/json"
+            }
+        },
+        "/v3/user/user": {
+            "GET": {
+                "responses": {
+                    "404": {
+                        "description": "Not Found",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
+                    }
+                },
+                "tags": "user",
                 "x-accepts": "application/json"
             }
         }
@@ -98,6 +101,8 @@
         "url": "161.35.147.108\r"
     },
     "tags": [
-        "pet"
+        "pet",
+        "store",
+        "user"
     ]
 }
