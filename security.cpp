@@ -22,7 +22,7 @@ int main(){
 					
 				}
 				if(!flag){
-					cout << "status code 200 not defined "<< x.key()<<  endl;
+					cout << "status code 200 not defined in "<< x<<  endl;
 				}
 			}
 		}
