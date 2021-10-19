@@ -22,7 +22,7 @@ int main(){
 				json object = z.value();
 				cout << "object is : " << object << endl; 
 				for(auto code : object.items()){
-					if (code.key() == '200'){
+					if (code.key() == "200"){
 						cout << "works";
 					}
 					cout << "code is : " << code << endl;
