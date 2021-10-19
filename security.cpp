@@ -12,6 +12,7 @@ int main(){
 	cin >> model; 
 	int flag = 0;
 	for(auto x : model["paths"]){
+		cout << "x is : " << x<<  endl;
 		for(auto y : x){
 			for(auto z : y.items()){
 				json object = z.value();
@@ -25,15 +26,6 @@ int main(){
 					//cout << "status code 4000 not defined " <<  endl;
 				}
 			}
-		}
-	}
-
-	for(auto x : model["paths"]){
-		cout << "x is : " << x<<  endl;
-		cout << "x.items().key() is : " << x.items()<<  endl;
-		for(auto y : x){
-			cout << "y is : " << y <<  endl;
-			cout << "y.items().key() is : " << y.items()<<  endl;
 		}
 	}
 
