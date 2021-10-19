@@ -30,10 +30,10 @@ int main(){
 
 	for(json x : model["paths"]){
 		cout << "x is : " << x<<  endl;
-		cout << "x.items().key() is : " << x.items().key()<<  endl;
+		cout << "x.items().key() is : " << x.items()<<  endl;
 		for(json y : x){
 			cout << "y is : " << y <<  endl;
-			cout << "y.items().key() is : " << y.items().key()<<  endl;
+			cout << "y.items().key() is : " << y.items()<<  endl;
 		}
 	}
 
