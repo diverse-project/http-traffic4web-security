@@ -19,6 +19,8 @@ int main(){
 				cout << "whearas z is : " << z << endl;
 				cout << "whearas z's key is : " << z.key() << endl;
 				cout << "whearas z's value is : " << z.value() << endl;
+				json object = z.value();
+				cout << "object is : " << object << endl; 
 				if(z.key() == "responses"){
 					/*for(auto code : z.items()){
 						cout << "code is : " << code << endl;
