@@ -29,10 +29,11 @@ int main(){
 	}
 
 	for(json x : model["paths"]){
-		cout << "x.key() is : " << x.key()<<  endl;
+		cout << "x is : " << x<<  endl;
+		cout << "x.items().key() is : " << x.items().key()<<  endl;
 		for(json y : x){
-			out << "y is : " << y <<  endl;
-			out << "y.key() is : " << y.key()<<  endl;
+			cout << "y is : " << y <<  endl;
+			cout << "y.items().key() is : " << y.items().key()<<  endl;
 		}
 	}
 
