@@ -17,9 +17,12 @@ int main(){
 			cout << "y is this : " << y << endl;
 			for(auto z : y.items()){
 				cout << "whearas z's key is : " << z.key() << endl;
-				/*if(z.key() == "responses"){
-					cout << "whearas z's items are : " << z.items() << endl;
-				}*/
+				if(z.key() == "responses"){
+					for(auto code : z){
+						cout << "code is : " << code << endl;
+						cout << "code.key() is : " << code.key() << endl;
+					}
+				}
 			}
 		}
 	}
