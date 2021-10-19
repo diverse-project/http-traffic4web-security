@@ -16,13 +16,13 @@ int main(){
 			for(auto z : y.items()){
 				json object = z.value();
 				for(auto code : object.items()){
-					if (code.key() == "200"){
+					if (code.key() == "4000"){
 						flag = 1;
 					}
 					
 				}
 				if(!flag){
-					cout << "status code 200 not defined in "<< x<<  endl;
+					cout << "status code 4000 not defined in "<< x<<  endl;
 				}
 			}
 		}
