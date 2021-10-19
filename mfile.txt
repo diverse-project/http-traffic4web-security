@@ -1,28 +1,101 @@
 {
     "externalDocs": {
-        "description": "Find out more about OpenAPI generator",
-        "url": "https://openapi-generator.tech"
+        "description": "Find out more about Hissane's security tool",
+        "url": "https://github.com/diverse-project/http-traffic4web-security"
+    },
+    "info": {
+        "description": "defaultDescription",
+        "title": "defaultTitle",
+        "version": "0.1"
     },
     "openapi": "3.0.0",
     "paths": {
-        "/v3/pet/120": {
+        "/v3/pet": {
+            "POST": {
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized",
+                        "x-headers": [
+                            "Cache-Control: no-store",
+                            "Content-Type",
+                            "X-Content-Type-Options: nosniff",
+                            "X-Frame-Options: DENY"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "*/*"
+            },
+            "PUT": {
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized",
+                        "x-headers": [
+                            "Cache-Control: no-store",
+                            "Content-Type",
+                            "X-Content-Type-Options: nosniff",
+                            "X-Frame-Options: DENY"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "*/*"
+            }
+        },
+        "/v3/pet/11": {
+            "DELETE": {
+                "x-accepts": "*/*"
+            },
+            "POST": {
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized",
+                        "x-headers": [
+                            "Cache-Control: no-store",
+                            "Content-Type",
+                            "X-Content-Type-Options: nosniff",
+                            "X-Frame-Options: DENY"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "*/*"
+            }
+        },
+        "/v3/pet/4": {
             "GET": {
                 "responses": {
                     "404": {
-                        "description": "Not Found"
+                        "description": "Not Found",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
                     }
-                }
+                },
+                "tags": "pet",
+                "x-accepts": "application/json"
             }
         },
-        "/v3/pet/3": {
+        "/v3/pet/findByStatus?status=pending": {
             "GET": {
                 "responses": {
-                    "200": {
-                        "description": "OK"
+                    "401": {
+                        "description": "Unauthorized",
+                        "x-headers": [
+                            "Cache-Control: no-store",
+                            "Content-Type",
+                            "X-Content-Type-Options: nosniff",
+                            "X-Frame-Options: DENY"
+                        ]
                     }
-                }
+                },
+                "tags": "pet",
+                "x-accepts": "application/json"
             }
         }
+    },
+    "servers": {
+        "url": "161.35.147.108\r"
     },
     "tags": [
         "pet"
