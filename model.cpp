@@ -88,7 +88,7 @@ bool handler(const PDU& pkt) {
 		for(auto x : methods){
 			if(search(x, req, 101)){
 				method = req.substr(0, req.find(' '));
-				//std::transform(method.begin(), method.end(), method.begin(),[](unsigned char c){ return std::tolower(c); });
+				std::transform(method.begin(), method.end(), method.begin(),[](unsigned char c){ return std::tolower(c); });
 				vector<string> r = split(req, ' ');
 				path = r[1];
 				vector<string> v = split (path, '/');
