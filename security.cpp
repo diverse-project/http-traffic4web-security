@@ -22,9 +22,17 @@ int main(){
 					
 				}
 				if(!flag){
-					cout << "status code 4000 not defined in "<< model["paths"] <<  endl;
+					//cout << "status code 4000 not defined " <<  endl;
 				}
 			}
+		}
+	}
+
+	for(json x : model["paths"]){
+		cout << "x.key() is : " << x.key()<<  endl;
+		for(json y : x){
+			out << "y is : " << y <<  endl;
+			out << "y.key() is : " << y.key()<<  endl;
 		}
 	}
 
