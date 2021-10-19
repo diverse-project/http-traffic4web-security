@@ -18,7 +18,7 @@ int main(){
 			for(auto z : y.items()){
 				cout << "whearas z's key is : " << z.key() << endl;
 				if(z.key() == "responses"){
-					for(auto code : z.items){
+					for(auto code : z.items()){
 						cout << "code is : " << code << endl;
 						cout << "code.key() is : " << code.key() << endl;
 					}
