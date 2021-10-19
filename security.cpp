@@ -21,6 +21,13 @@ int main(){
 				cout << "whearas z's value is : " << z.value() << endl;
 				json object = z.value();
 				cout << "object is : " << object << endl; 
+				for(auto code : object.items()){
+					if (code.key() == '200'){
+						cout << "works";
+					}
+					cout << "code is : " << code << endl;
+					cout << "code.key() is : " << code.key() << endl;
+				}
 				if(z.key() == "responses"){
 					/*for(auto code : z.items()){
 						cout << "code is : " << code << endl;
