@@ -12,13 +12,13 @@ int main(){
 	cin >> model; 
 	
 	for(auto x : model["paths"]){
-		//cout << x.key() << endl; // path
+		cout << "x.key() is " << x.key() << endl; // path
 		for(auto y : x){
-			//cout << "y is this : " << y << endl;
+			cout << "y is this : " << y << endl;
 			for(auto z : y.items()){
-				//cout << "whearas z's key is : " << z.key() << endl;
+				cout << "whearas z's key is : " << z.key() << endl;
 				if(z.key() == "responses"){
-					cout << z.items() << endl;
+					cout << "whearas z's items are : " << z.items() << endl;
 				}
 			}
 		}
