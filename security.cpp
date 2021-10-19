@@ -22,7 +22,7 @@ int main(){
 					
 				}
 				if(!flag){
-					cout << "status code 4000 not defined in "<< x<<  endl;
+					cout << "status code 4000 not defined in "<< model["paths"] <<  endl;
 				}
 			}
 		}
