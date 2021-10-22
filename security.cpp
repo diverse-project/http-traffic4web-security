@@ -30,7 +30,7 @@ int main(){
 	}
 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
-        cout << it.key() << endl
+        cout << it.key() << endl;
 	}
 
 	return 0;
