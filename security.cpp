@@ -40,7 +40,7 @@ int main(){
 					        json m3 = it2.value();
 					        for (json::iterator it3 = m3.begin(); it3 != m3.end(); ++it3) {
 					        	if(it3.key() == "responses"){
-					        		m4 = it3.value();
+					        		json m4 = it3.value();
 					        		for (json::iterator it4 = m4.begin(); it4 != m4.end(); ++it4) {
 					        			if (it4.key() == "429"){
 											flag = 1;
@@ -69,7 +69,7 @@ int main(){
         	for (json::iterator it1 = model1.begin(); it1 != model1.end(); ++it1) {
 			        cout << it1.key() << endl;
 			        string path = it1.key();
-			        vector<string> cpaths = split (path, '/');
+			        //vector<string> cpaths = split (path, '/');
 
 			}
 
