@@ -31,6 +31,10 @@ int main(){
 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
         cout << it.key() << endl;
+        if(it.key() == "paths"){
+        	cout << it.items() << endl;
+
+        }
 	}
 
 	return 0;
