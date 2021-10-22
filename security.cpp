@@ -37,7 +37,7 @@ int main(){
 			        json m2 = it1.value();
 			        for (json::iterator it2 = m2.begin(); it2 != m2.end(); ++it2) {
 					        string method = it2.key();
-					        std::transform(method.begin(), method.end(), method.begin(),[](unsigned char c){ return std::tolower(c); });
+					        std::transform(method.begin(), method.end(), method.begin(),[](unsigned char c){ return std::toupper(c); });
 					        json m3 = it2.value();
 					        for (json::iterator it3 = m3.begin(); it3 != m3.end(); ++it3) {
 					        	if(it3.key() == "responses"){
@@ -48,7 +48,7 @@ int main(){
 										}
 					        		}
 					        		if(!flag){
-										cout << RED << "[!] Response code 429 not defined in " << path << " for " << method << " request" << RESET <<  endl;
+										cout << RED << "[!] Response code 429 not defined in \"" << path << "\" for " << method << " request" << RESET <<  endl;
 									}
 					        	}
 					        }
