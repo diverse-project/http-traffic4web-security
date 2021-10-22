@@ -30,9 +30,11 @@ int main(){
 	}
 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
-        cout << it.key() << endl;
         if(it.key() == "paths"){
-        	cout << it.value() << endl;
+        	json model1 = it.value();
+        	for (json::iterator it1 = model1.begin(); it1 != model1.end(); ++it1) {
+			        cout << it1.key() << endl;
+			}
 
         }
 	}
