@@ -12,18 +12,18 @@ int main(){
 	cin >> model; 
 	int flag = 0;
 	for(auto x : model["paths"]){
-		cout << "x is : " << x<<  endl;
+		cout << "x.key() is : " << x<<  endl;
 		for(auto y : x){
 			for(auto z : y.items()){
 				json object = z.value();
 				for(auto code : object.items()){
-					if (code.key() == "4000"){
+					if (code.key() == "429"){
 						flag = 1;
 					}
 					
 				}
 				if(!flag){
-					//cout << "status code 4000 not defined " <<  endl;
+					cout << RED << "/!\\ status code 429 not defined " << RESET <<  endl;
 				}
 			}
 		}
