@@ -34,6 +34,9 @@ int main(){
         	json model1 = it.value();
         	for (json::iterator it1 = model1.begin(); it1 != model1.end(); ++it1) {
 			        cout << it1.key() << endl;
+			        string path = it1.key();
+			        vector<string> cpaths = split (path, '/');
+
 			}
 
         }
