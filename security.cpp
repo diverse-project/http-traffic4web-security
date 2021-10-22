@@ -31,6 +31,40 @@ int main(){
 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
         if(it.key() == "paths"){
+        	json m1 = it.value();
+        	for (json::iterator it1 = m1.begin(); it1 != m1.end(); ++it1) {
+			        string path = it1.key();
+			        json m2 = it1.value();
+			        for (json::iterator it2 = m2.begin(); it2 != m2.end(); ++it2) {
+					        string method = it2.key();
+					        json m3 = it2.value();
+					        for (json::iterator it3 = m3.begin(); it3 != m3.end(); ++it3) {
+					        	if(it3.key() == "responses"){
+					        		m4 = it3.value();
+					        		for (json::iterator it4 = m4.begin(); it4 != m4.end(); ++it4) {
+					        			if (it4.key() == "429"){
+											flag = 1;
+										}
+					        		}
+					        		if(!flag){
+										cout << RED << "/!\\ Response code 429 not defined in " << path << " for " << method << " method" << RESET <<  endl;
+									}
+					        	}
+					        }
+					        
+					}
+
+					
+			}
+
+        }
+
+	}
+
+	cout << "#############################" << endl;
+
+	for (json::iterator it = model.begin(); it != model.end(); ++it) {
+        if(it.key() == "paths"){
         	json model1 = it.value();
         	for (json::iterator it1 = model1.begin(); it1 != model1.end(); ++it1) {
 			        cout << it1.key() << endl;
