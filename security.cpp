@@ -12,7 +12,7 @@ int main(){
 	cin >> model; 
 	int flag = 0;
 	for(auto x : model["paths"]){
-		cout << "x.key() is : " << x<<  endl;
+		//cout << "x is : " << x<<  endl;
 		for(auto y : x){
 			for(auto z : y.items()){
 				json object = z.value();
@@ -23,10 +23,14 @@ int main(){
 					
 				}
 				if(!flag){
-					cout << RED << "/!\\ status code 429 not defined " << RESET <<  endl;
+					//cout << RED << "/!\\ Response code 429 not defined " << RESET <<  endl;
 				}
 			}
 		}
+	}
+
+	for (json::iterator it = model.begin(); it != model.end(); ++it) {
+        cout << it.key() << endl
 	}
 
 	return 0;
