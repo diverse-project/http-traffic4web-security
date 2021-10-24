@@ -58,11 +58,11 @@ int main(){
 	    }
 	}
 	map<string,vector<string>> index;
-	for(auto xx: pathset){
+	for(auto xx: pathsset){
 		auto rr = xx.end();
 		while(--rr != xx.begin()){
 			if(*rr == '/'){
-				string right = xx.substr(xx.begin();rr);
+				string right = xx.substr(xx.begin(),rr);
 				string left = xx.substr(rr+1;xx.end());
 				if(isNumber(right))	index[left].push_back(right);
 
