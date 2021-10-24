@@ -36,15 +36,21 @@ int main(){
 										cout << "---> Define proper rate limiting." << endl;
 									}
 					        	}
+					        	
 					        	if(it3.key() == "parameters"){
-					        		json m4 = it3.value();
+					        		json m4 = it3.value();					    					        		
 					        		for (json::iterator it4 = m4.begin(); it4 != m4.end(); ++it4) {
 					        			json m5 = it4.value(); 
+					        			int flag2 = 0;
 					        			for(json::iterator it5 = m5.begin(); it5 != m5.end(); ++it5){
-					        				cout << "key : " << it5.key() << endl;
 					        				if(it5.key() == "schema"){
-					        					cout << "value : " <<it5.value() << endl;
+					        					cout << "value : " << it5.value() << endl;
+					        					flag2 = 1;
 					        				}
+					        			}
+					        			if(!flag2){
+					        				cout << RED << "[!] Parameter schema not defined in \"" << path << " \" for " << method << " request" << RESET  << endl;
+					        				cout << "---> Strictly define all input data, such as schemas, types, and string patterns" << endl;
 					        			}
 					 
 					        		}
