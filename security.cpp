@@ -62,9 +62,9 @@ int main(){
 		auto rr = xx.end();
 		while(--rr != xx.begin()){
 			if(*rr == '/'){
-				string right = string(xx.begin(),rr);
-				string left = string(rr+1,xx.end());
-				if(isNumber(left))	index[left].push_back(right);
+				string left = string(xx.begin(),rr);
+				string right = string(rr+1,xx.end());
+				if(isNumber(right))	index[left].push_back(right);
 
 			} 
 		}
