@@ -10,7 +10,7 @@ bool isNumber(const std::string &str) {
   return !str.empty() && str.find_first_not_of("0123456789") == string::npos;
 }
 int main(){
-	freopen ("mfile.txt","r",stdin);
+	freopen ("VAmPI.txt","r",stdin);
 	cin >> model; 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
         if(it.key() == "paths"){
