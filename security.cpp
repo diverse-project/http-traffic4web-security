@@ -62,8 +62,8 @@ int main(){
 		auto rr = xx.end();
 		while(--rr != xx.begin()){
 			if(*rr == '/'){
-				string right = xx.substr(xx.begin(),rr++);
-				string left = xx.substr(rr,xx.end());
+				string right = string(xx.begin(),rr++);
+				string left = string(rr,xx.end());
 				if(isNumber(right))	index[left].push_back(right);
 
 			} 
