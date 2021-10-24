@@ -6,7 +6,7 @@ using namespace std;
 using json = nlohmann::json;
 
 json model;
-isNumber(const std::string &str) {    
+bool isNumber(const std::string &str) {    
   return !str.empty() && str.find_first_not_of("0123456789") == string::npos;
 }
 int main(){
