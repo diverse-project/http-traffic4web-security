@@ -46,8 +46,6 @@ int main(){
 
 	}
 
-	cout << "#############################" << endl;
-
 	set<string> pathsset;
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
 	    if(it.key() == "paths"){
