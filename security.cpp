@@ -36,6 +36,16 @@ int main(){
 										cout << "---> Define proper rate limiting." << endl;
 									}
 					        	}
+					        	if(it3.key() == "parameters"){
+					        		json m4 = it3.value();
+					        		for (json::iterator it4 = m4.begin(); it4 != m4.end(); ++it4) {
+					        			cout << "value : " << it4.value() << endl;
+					        			cout << "key : " << it4.key() << endl;
+					        			if (it4.key() == "schema"){
+											
+										}
+					        		}
+					        	}
 					        }
 					        
 					}
