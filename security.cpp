@@ -70,7 +70,7 @@ int main(){
 	}
 	for(auto path : index){
 		cout << YELLOW << "[!] WARNING Possibility of ID enumeration on \"" << path.first << "\"" << RESET << endl;
-		cout << "---> Use random IDs that cannot be guessed."
+		cout << "---> Use random IDs that cannot be guessed." << endl;
 	}
 
 
