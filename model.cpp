@@ -133,7 +133,7 @@ bool handler(const PDU& pkt) {
     			}
     		}
     		model["paths"][path][method]["responses"][code]["x-headers"] = hdr;
-    		//model["paths"][path][method]["x-accepts"] = ;
+    		model["paths"][path][method]["parameters"] = "";
     		//model["components"][securitySchemes"][method]["x-accepts"] = ;
 		}
 		
