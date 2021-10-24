@@ -42,7 +42,7 @@ int main(){
 					        			m5 = it4.value(); 
 					        			for(json::iterator it5 = m5.begin(); it5 != m5.end(); ++it5){
 					        				cout << "key : " << it5.key() << endl;
-					        				if(it5.key() = "schema"){
+					        				if(it5.key() == "schema"){
 					        					cout << "value : " <<it5.value() << endl;
 					        				}
 					        			}
