@@ -61,6 +61,7 @@ int main(){
 	for(auto xx: pathsset){
 		auto rr = xx.end();
 		while(--rr != xx.begin()){
+			cerr<< string(xx.begin,rr)<< endl;
 			if(*rr == '/'){
 				string right = string(xx.begin(),rr++);
 				string left = string(rr,xx.end());
