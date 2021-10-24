@@ -39,7 +39,7 @@ int main(){
 					        	if(it3.key() == "parameters"){
 					        		json m4 = it3.value();
 					        		for (json::iterator it4 = m4.begin(); it4 != m4.end(); ++it4) {
-					        			m5 = it4.value(); 
+					        			json m5 = it4.value(); 
 					        			for(json::iterator it5 = m5.begin(); it5 != m5.end(); ++it5){
 					        				cout << "key : " << it5.key() << endl;
 					        				if(it5.key() == "schema"){
