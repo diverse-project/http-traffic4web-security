@@ -63,7 +63,7 @@ int main(){
 		while(--rr != xx.begin()){
 			if(*rr == '/'){
 				string right = xx.substr(xx.begin(),rr);
-				string left = xx.substr(rr+1;xx.end());
+				string left = xx.substr(rr+1,xx.end());
 				if(isNumber(right))	index[left].push_back(right);
 
 			} 
