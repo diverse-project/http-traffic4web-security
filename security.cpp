@@ -44,7 +44,6 @@ int main(){
 					        			int flag2 = 0;
 					        			for(json::iterator it5 = m5.begin(); it5 != m5.end(); ++it5){
 					        				if(it5.key() == "schema"){
-					        					cout << "value : " << it5.value() << endl;
 					        					flag2 = 1;
 					        				}
 					        			}
