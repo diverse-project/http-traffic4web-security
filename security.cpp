@@ -33,6 +33,7 @@ int main(){
 					        		}
 					        		if(!flag){
 										cout << RED << "[!] Response code 429 not defined in \"" << path << "\" for " << method << " request" << RESET <<  endl;
+										cout << "---> Define proper rate limiting." << endl;
 									}
 					        	}
 					        }
@@ -69,6 +70,7 @@ int main(){
 	}
 	for(auto path : index){
 		cout << YELLOW << "[!] WARNING Possibility of ID enumeration on \"" << path.first << "\"" << RESET << endl;
+		cout << "---> Use random IDs that cannot be guessed."
 	}
 
 
