@@ -8,7 +8,7 @@ using json = nlohmann::json;
 json model;
 
 int main(){
-	freopen ("mfile.txt","r",stdin);
+	freopen ("VAmPI.txt","r",stdin);
 	cin >> model; 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
         if(it.key() == "paths"){
@@ -45,14 +45,16 @@ int main(){
 	}
 
 	cout << "#############################" << endl;
-
+	map<string,string> adjmat;
+	vector<vector<string>> adjlist;
+	set<string> names;
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
         if(it.key() == "paths"){
         	json model1 = it.value();
         	for (json::iterator it1 = model1.begin(); it1 != model1.end(); ++it1) {
 			        cout << it1.key() << endl;
 			        string path = it1.key();
-			        cout << path << endl;
+
 
 			}
 

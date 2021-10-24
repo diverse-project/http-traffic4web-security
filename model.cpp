@@ -21,19 +21,6 @@ vector<string> headers{"Cache-Control: no-store", "Content-Security-Policy: fram
 
 int timer = 0; 
 
-
-vector<string> split (const string &s, char delim) {
-    vector<string> result;
-    stringstream ss (s);
-    string item;
- 
-    while (getline (ss, item, delim)) {
-        result.push_back (item);
-    }
- 
-    return result;
-}
-
  
 bool search(string pat, string txt, int q){
     int M = pat.length();
@@ -163,7 +150,7 @@ bool handler(const PDU& pkt) {
     cout << model.dump(4);
 
     timer++; 
-    if (timer > 15){
+    if (timer > 50){
     	return false;
     }
     return true;

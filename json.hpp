@@ -25983,6 +25983,18 @@ inline nlohmann::json::json_pointer operator "" _json_pointer(const char* s, std
 {
     return nlohmann::json::json_pointer(std::string(s, n));
 }
+// splits a string and puts substring in a vector 
+vector<string> split (const string &s, char delim) {
+    vector<string> result;
+    stringstream ss (s);
+    string item;
+ 
+    while (getline (ss, item, delim)) {
+        result.push_back (item);
+    }
+ 
+    return result;
+}
 
 // #include <nlohmann/detail/macro_unscope.hpp>
 
