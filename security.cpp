@@ -64,7 +64,7 @@ int main(){
 			if(*rr == '/'){
 				string right = string(xx.begin(),rr);
 				string left = string(rr+1,xx.end());
-				if(isNumber(right))	index[left].push_back(right);
+				if(isNumber(left))	index[left].push_back(right);
 
 			} 
 		}
