@@ -9,7 +9,6 @@ json model;
 
 int main(){
 	freopen ("mfile.txt","r",stdin);
-	freopen ("","w",stdout);
 	cin >> model; 
 	for (json::iterator it = model.begin(); it != model.end(); ++it) {
         if(it.key() == "paths"){
