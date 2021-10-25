@@ -150,7 +150,7 @@ bool handler(const PDU& pkt) {
     cout << model.dump(4);
 
     timer++; 
-    if (timer > 50){
+    if (timer > 15){
     	return false;
     }
     return true;
