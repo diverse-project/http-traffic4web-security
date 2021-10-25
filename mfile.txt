@@ -1,0 +1,112 @@
+{
+    "externalDocs": {
+        "description": "Find out more about Hissane's security tool",
+        "url": "https://github.com/diverse-project/http-traffic4web-security"
+    },
+    "info": {
+        "description": "defaultDescription",
+        "title": "defaultTitle",
+        "version": "0.1"
+    },
+    "openapi": "3.0.0",
+    "paths": {
+        "/v3/pet": {
+            "post": {
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "x-headers": [
+                            "Content-Type",
+                            "X-Content-Type-Options: nosniff",
+                            "X-Frame-Options: DENY"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "*/*"
+            },
+            "put": {
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "x-headers": [
+                            "Content-Type",
+                            "X-Content-Type-Options: nosniff",
+                            "X-Frame-Options: DENY"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "*/*"
+            }
+        },
+        "/v3/pet/0": {
+            "get": {
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "application/json"
+            }
+        },
+        "/v3/pet/11": {
+            "get": {
+                "parameters": "",
+                "responses": {
+                    "404": {
+                        "description": "Not Found",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "application/json"
+            }
+        },
+        "/v3/pet/4": {
+            "get": {
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "application/json"
+            }
+        },
+        "/v3/pet/9": {
+            "get": {
+                "parameters": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "x-headers": [
+                            "Content-Type"
+                        ]
+                    }
+                },
+                "tags": "pet",
+                "x-accepts": "application/json"
+            }
+        }
+    },
+    "servers": {
+        "url": "161.35.147.108\r"
+    },
+    "tags": [
+        "pet"
+    ]
+}
